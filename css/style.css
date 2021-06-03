@@ -9,6 +9,11 @@ a {
   width: 90%;
   margin: auto;
   grid-template-columns: 30% 70%; }
+  @media (max-width: 576px) {
+    .container {
+      display: flex;
+      width: 100%;
+      flex-direction: column; } }
   .container .studensInfo {
     background: #7efcfc;
     padding: 0px 15px 15px 15px; }
@@ -22,12 +27,20 @@ a {
       .container .studensInfo .detail__info .info label {
         font-weight: bold;
         font-size: 14px; }
+    .container .studensInfo .detail__info #fullname--error, .container .studensInfo .detail__info #mail--error,
+    .container .studensInfo .detail__info #phone--error,
+    .container .studensInfo .detail__info #addr--error {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 14px;
+      color: red; }
     .container .studensInfo .detail__info .gender {
       display: grid;
       grid-template-columns: 20% 80%;
       align-items: center; }
       .container .studensInfo .detail__info .gender label {
-        font-weight: bold; }
+        font-weight: bold;
+        font-size: 14px; }
       .container .studensInfo .detail__info .gender .gender--item {
         display: flex; }
     .container .studensInfo .detail__info button {

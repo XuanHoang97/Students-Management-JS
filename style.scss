@@ -4,6 +4,11 @@
     width: 90%;
     margin: auto;
     grid-template-columns: 30% 70%;
+    @include phone {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+    }
     .studensInfo {
         background: rgb(126, 252, 252);
         padding: 0px 15px 15px 15px;
@@ -21,12 +26,24 @@
                     font-size: 14px;
                 }
             }
+            #fullname--error {
+                display: flex;
+                justify-content: flex-end;
+                font-size: 14px;
+                color: red;
+            }
+            #mail--error,
+            #phone--error,
+            #addr--error {
+                @extend #fullname--error;
+            }
             .gender {
                 display: grid;
                 grid-template-columns: 20% 80%;
                 align-items: center;
                 label {
                     font-weight: bold;
+                    font-size: 14px;
                 }
                 .gender--item {
                     display: flex;
