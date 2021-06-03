@@ -10,11 +10,102 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="variable.scss">
 </head>
 
 <body>
+    <div class="container">
+        <div class="studensInfo">
+            <h2>Thông tin sinh viên</h2>
+            <div class="detail__info">
+                <div class="info">
+                    <label for="">Họ tên</label>
+                    <input type="text">
+                </div>
+
+                <div class="info">
+                    <label for="">Email</label>
+                    <input type="text">
+                </div>
+
+                <div class="info">
+                    <label for="">SĐT</label>
+                    <input type="text">
+                </div>
+
+                <div class="info">
+                    <label for="">Địa chỉ</label>
+                    <input type="text">
+                </div>
+
+
+                <div class="gender">
+                    <label for="">Giới tính</label>
+                    <div class="gender--item">
+                        <div class="g--item">
+                            <input type="radio">
+                            <label for="">Nam</label>
+                        </div>
+
+                        <div class="g--item">
+                            <input type="radio">
+                            <label for="">Nữ</label>
+                        </div>
+
+                    </div>
+                </div>
+                <button>Lưu lại </button>
+            </div>
+        </div>
+        <div class="studensList">
+            <h2>Danh sách sinh viên</h2>
+            <div class="detail__list">
+                <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Họ và tên</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Gender</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>Lê Xuân Hoàng</td>
+                        <td>xuanhoang997@gmail.com</td>
+                        <td>093635</td>
+                        <td>Hà Nội</td>
+                        <td>Nam</td>
+                        <td>Xoá | Sửa</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Lê Xuân Hoàng</td>
+                        <td>xuanhoang997@gmail.com</td>
+                        <td>093635</td>
+                        <td>Hà Nội</td>
+                        <td>Nam</td>
+                        <td>Xoá | Sửa</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Lê Xuân Hoàng</td>
+                        <td>xuanhoang997@gmail.com</td>
+                        <td>093635</td>
+                        <td>Hà Nội</td>
+                        <td>Nam</td>
+                        <td>Xoá | Sửa</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
 
 </body>
 

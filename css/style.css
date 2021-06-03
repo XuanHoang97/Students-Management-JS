@@ -1,0 +1,58 @@
+html {
+  font-size: 62.5%; }
+
+a {
+  text-decoration: none; }
+
+.container {
+  display: grid;
+  width: 90%;
+  margin: auto;
+  grid-template-columns: 30% 70%; }
+  .container .studensInfo {
+    background: #7efcfc;
+    padding: 0px 15px 15px 15px; }
+    .container .studensInfo h2 {
+      font-size: 20px; }
+    .container .studensInfo .detail__info .info {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      align-items: center;
+      margin: 10px 0; }
+      .container .studensInfo .detail__info .info label {
+        font-weight: bold;
+        font-size: 14px; }
+    .container .studensInfo .detail__info .gender {
+      display: grid;
+      grid-template-columns: 20% 80%;
+      align-items: center; }
+      .container .studensInfo .detail__info .gender label {
+        font-weight: bold; }
+      .container .studensInfo .detail__info .gender .gender--item {
+        display: flex; }
+    .container .studensInfo .detail__info button {
+      margin-top: 10px; }
+  .container .studensList {
+    background: pink;
+    padding: 0px 15px 15px 15px; }
+    .container .studensList h2 {
+      font-size: 2rem; }
+    .container .studensList .detail__list table {
+      width: 100%; }
+      .container .studensList .detail__list table tr {
+        display: grid;
+        grid-template-columns: 5% 15% 25% 15% 15% 10% 15%; }
+        .container .studensList .detail__list table tr th {
+          font-size: 16px; }
+      .container .studensList .detail__list table tr:nth-child(odd) {
+        background-color: #ffffff;
+        padding: 5px 0; }
+        .container .studensList .detail__list table tr:nth-child(odd) td {
+          text-align: center;
+          font-size: 14px; }
+      .container .studensList .detail__list table tr:nth-child(even) {
+        background-color: #c9c9c9;
+        padding: 5px 0; }
+        .container .studensList .detail__list table tr:nth-child(even) td {
+          text-align: center;
+          font-size: 14px; }
