@@ -13,40 +13,45 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="variable.scss">
 
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
-    <div class="container">
+    <h3 style="text-align: center; color: orange;">QUẢN LÝ SINH VIÊN</h3>
+    <div class="containerMain">
         <div class="studensInfo">
             <h2>Thông tin sinh viên</h2>
             <div class="detail__info">
                 <div class="info">
                     <label for="">Họ tên</label>
-                    <input type="text" id="fullname">
+                    <input type="text" id="fullName" placeholder="Xuân Hoàng...">
                 </div>
                 <span id="fullname--error"></span>
 
 
                 <div class="info">
                     <label for="">Email</label>
-                    <input type="text" id="email">
+                    <input type="text" id="email" placeholder="Xuanhoang997@gmail.com...">
                 </div>
                 <span id="mail--error"></span>
 
 
                 <div class="info">
                     <label for="">SĐT</label>
-                    <input type="text" id="phone">
+                    <input type="text" id="phone" placeholder="0936352977">
                 </div>
                 <span id="phone--error"></span>
 
 
                 <div class="info">
                     <label for="">Địa chỉ</label>
-                    <input type="text" id="addr">
+                    <input type="text" id="addr" placeholder="Hà Nội">
                 </div>
                 <span id="addr--error"></span>
-
 
                 <div class="gender">
                     <label for="">Giới tính</label>
@@ -63,53 +68,41 @@
 
                     </div>
                 </div>
+                <span id="gender--error"></span>
+
+                <div class="info">
+                    <label for="">Mật khẩu</label>
+                    <input type="password" id="pass" placeholder="********">
+                </div>
+                <span id="pass--error"></span>
+
+                <div class="info">
+                    <label for="">Nhập lại mật khẩu</label>
+                    <input type="password" id="repass" placeholder="********">
+                </div>
+                <span id="repass--error"></span>
+
                 <button onclick="save()">Lưu lại </button>
             </div>
         </div>
         <div class="studensList">
             <h2>Danh sách sinh viên</h2>
             <div class="detail__list">
-                <table>
-                    <tr>
-                        <th>#</th>
-                        <th>Họ và tên</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Address</th>
-                        <th>Gender</th>
-                        <th>Action</th>
-                    </tr>
+                <table class="table table-hover table-striped table-bordered">
+                    <thead>
+                        <tr class="info">
+                            <th>#</th>
+                            <th>Họ và tên</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Address</th>
+                            <th>Gender</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="list--studens">
 
-                    <tr>
-                        <td>1</td>
-                        <td>Lê Xuân Hoàng</td>
-                        <td>xuanhoang997@gmail.com</td>
-                        <td>093635</td>
-                        <td>Hà Nội</td>
-                        <td>Nam</td>
-                        <td>Xoá | Sửa</td>
-                    </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>Lê Xuân Hoàng</td>
-                        <td>xuanhoang997@gmail.com</td>
-                        <td>093635</td>
-                        <td>Hà Nội</td>
-                        <td>Nam</td>
-                        <td>Xoá | Sửa</td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>Lê Xuân Hoàng</td>
-                        <td>xuanhoang997@gmail.com</td>
-                        <td>093635</td>
-                        <td>Hà Nội</td>
-                        <td>Nam</td>
-                        <td>Xoá | Sửa</td>
-                    </tr>
-
+                    </tbody>
                 </table>
             </div>
         </div>
