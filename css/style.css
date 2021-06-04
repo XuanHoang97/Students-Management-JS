@@ -22,7 +22,7 @@ a {
       width: 100%;
       flex-direction: column; } }
   .containerMain .studensInfo {
-    background: #7efcfc;
+    background: #76CCE7;
     padding: 0px 15px 15px 15px; }
     .containerMain .studensInfo h2 {
       font-size: 20px;
@@ -49,10 +49,12 @@ a {
     .containerMain .studensInfo .detail__info #fullname--error, .containerMain .studensInfo .detail__info #mail--error,
     .containerMain .studensInfo .detail__info #phone--error,
     .containerMain .studensInfo .detail__info #addr--error,
-    .containerMain .studensInfo .detail__info #gender--error {
+    .containerMain .studensInfo .detail__info #gender--error,
+    .containerMain .studensInfo .detail__info #pass--error,
+    .containerMain .studensInfo .detail__info #repass--error {
       display: flex;
       justify-content: flex-end;
-      font-size: 14px;
+      font-size: 12px;
       color: red; }
     .containerMain .studensInfo .detail__info .gender {
       display: grid;

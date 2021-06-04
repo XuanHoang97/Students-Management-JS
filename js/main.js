@@ -1,103 +1,138 @@
-function emailIsValid(email) {
-    /w+([-+.]w+)*@w+([-.]w+)*.w+([-.]w+)*/.test(email)
-}
+    let mail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
 
-function save() {
-    let fullName = document.getElementById('fullName').value;
-    let email = document.getElementById('email').value;
-    let phone = document.getElementById('phone').value;
-    let addr = document.getElementById('addr').value;
-    let gender = "";
+    // Validate
+    function save() {
+        let fullName = $('#fullName').val();
+        let email = $('#email').val();
+        let phone = $('#phone').val();
+        let addr = $('#addr').val();
+        let gender = "";
+        let pass = $('#password').val();
+        let repass = $('#repassword').val();
 
-    let male = document.getElementById('male');
-    let female = document.getElementById('female');
-    if (male.checked) {
-        gender = male.value;
-    } else if (female.checked) {
-        gender = female.value;
+        let male = document.getElementById('male');
+        let female = document.getElementById('female');
+        if (male.checked) {
+            gender = male.value;
+        } else if (female.checked) {
+            gender = female.value;
+        }
+
+        let isFullName = document.getElementById('fullname--error');
+        let isMail = document.getElementById('mail--error');
+        let isPhone = document.getElementById('phone--error');
+        let isAddr = document.getElementById('addr--error');
+        let isGender = document.getElementById('gender--error');
+        let isPass = document.getElementById('pass--error');
+        let isRepass = document.getElementById('repass--error');
+
+        // Validate fullname
+        if (_.isEmpty(fullName)) {
+            fullName = ''
+            isFullName.innerHTML = 'Vui lòng nhập đầy đủ họ tên';
+        } else if (fullName.trim().length <= 6) {
+            fullName = ''
+            isFullName.innerHTML = 'Họ và tên không được nhỏ hơn 6 ký tự';
+        } else if (fullName.trim().length > 20) {
+            fullName = ''
+            isFullName.innerHTML = 'Không được nhâp lớn hơn 20 ký tự ';
+        } else {
+            isFullName.innerHTML = '';
+        }
+
+        // Validate email
+        if (_.isEmpty(email)) {
+            isMail.innerHTML = "Vui lòng nhập email";
+        } else if (!mail.test(email)) {
+            isMail.innerHTML = 'Định dạng email sai, vui lòng nhập lại';
+        } else {
+            isMail.innerHTML = '';
+        }
+
+        // Validate phone
+        if (_.isEmpty(phone)) {
+            isPhone.innerHTML = 'vui lòng nhập số điện thoại';
+        } else if (!vnf_regex.test(phone)) {
+            isPhone.innerHTML = "Sai định dạng số điện thoại";
+        } else if (phone.trim().length > 11) {
+            phone = '';
+            isPhone.innerHTML = 'Số điện thoại không được quá 11 số';
+        } else {
+            isPhone.innerHTML = '';
+        }
+
+        // Validate address
+        if (_.isEmpty(addr)) {
+            addr = '';
+            isAddr.innerHTML = "Vui lòng nhập địa chỉ";
+        } else {
+            isAddr.innerHTML = '';
+        }
+
+        // Validate gender
+        if (_.isEmpty(gender)) {
+            gender = '';
+            isGender.innerHTML = "Vui lòng chọn giới tính";
+        } else {
+            isGender.innerHTML = '';
+        }
+
+        // Validate password
+        if (_.isEmpty(pass)) {
+            isPass.innerHTML = "Vui lòng nhập mật khẩu";
+        } else {
+            isPass.innerHTML = '';
+        }
+
+        // Validate repassword
+        if (_.isEmpty(repass)) {
+            isRepass.innerHTML = "Vui lòng Nhập mật khẩu";
+        } else {
+            isRepass.innerHTML = '';
+        }
+
+        // CRUD Students
+        if (fullName && email && phone && addr && gender) {
+            // Thêm ds sinh viên
+            let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
+
+            students.push({
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                addr: addr,
+                gender: gender,
+            });
+
+            localStorage.setItem('students', JSON.stringify(students));
+            this.renderListStudents();
+        }
     }
 
-    let isFullName = document.getElementById('fullname--error');
-    let isMail = document.getElementById('mail--error');
-    let isPhone = document.getElementById('phone--error');
-    let isAddr = document.getElementById('addr--error');
-    let isGender = document.getElementById('gender--error');
+    function renderListStudents() {
+        let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
 
-    if (_.isEmpty(fullName)) {
-        fullName = ''
-        isFullName.innerHTML = 'Vui lòng nhập đầy đủ họ tên';
-    } else if (fullName.trim().length <= 6) {
-        fullName = ''
-        isFullName.innerHTML = 'Họ và tên không được nhỏ hơn 6 ký tự';
-    } else if (fullName.trim().length > 20) {
-        fullName = ''
-        isFullName.innerHTML = 'Không được nhâp lớn hơn 20 ký tự ';
-    } else {
-        isFullName.innerHTML = '';
-    }
+        // if (students.length === 0) {
+        //     document.getElementById('list--students').style.display = 'none';
+        //     return false;
+        // }
+        // document.getElementById('list--students').style.display = 'block';
 
-    // if (_.isEmpty(email)) {
-    //     email = ''
-    //     isMail.innerHTML = "Vui lòng nhập email";
-    // } else if (!emailIsValid(email)) {
-    //     email = ''
-    //     isMail.innerHTML = 'Định dạng email sai, vui lòng nhập lại';
-
-    // } else {
-    //     isMail.innerHTML = '';
-    // }
-
-    if (_.isEmpty(phone)) {
-        phone = '';
-        isPhone.innerHTML = "Vui lòng nhập số điện thoại";
-    } else if (phone.trim().length > 10) {
-        phone = '';
-        isPhone.innerHTML = 'Số điện thoại không được quá 10 số';
-
-    } else {
-        isPhone.innerHTML = '';
-    }
-
-    if (_.isEmpty(addr)) {
-        addr = '';
-        isAddr.innerHTML = "Vui lòng nhập địa chỉ";
-    } else {
-        isAddr.innerHTML = '';
-    }
-
-    if (_.isEmpty(gender)) {
-        gender = '';
-        isGender.innerHTML = "Vui lòng chọn giới tính";
-    } else {
-        isGender.innerHTML = '';
-    }
-
-    if (fullName && email && phone && addr && gender) {
-        // Lưu vào trong danh sách sinh viên
-        let students = [];
-        students.push({
-            fullName: fullName,
-            email: email,
-            phone: phone,
-            addr: addr,
-            gender: gender,
-        });
-        students.forEach((student, index) => {
+        students.forEach((students, index) => {
             index++;
             tableContent = `<tr>
-                    <td>${index}</td>
-                    <td>${student.fullName}</td>
-                    <td>${student.email}</td>
-                    <td>${student.phone}</td>
-                    <td>${student.addr}</td>
-                    <td>${student.gender}</td>
-                    <td class="control">
-                        <a href="#">Sửa</a>
-                        <a href="#">Xoá</a>
-                    </td>
-                </tr>`;
+                <td>${index}</td>
+                <td>${students.fullName}</td>
+                <td>${students.email}</td>
+                <td>${students.phone}</td>
+                <td>${students.addr}</td>
+                <td>${students.gender}</td>
+                <td class="control">
+                    <a href="#">Sửa</a>
+                    <a href="#">Xoá</a>
+                </td>
+            </tr>`;
         })
-        document.getElementById('list--studens').innerHTML = tableContent;
+        document.getElementById('list--students').innerHTML = tableContent;
     }
-
-}

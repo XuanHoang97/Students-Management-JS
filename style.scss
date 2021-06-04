@@ -19,7 +19,7 @@ h3 {
         flex-direction: column;
     }
     .studensInfo {
-        background: rgb(126, 252, 252);
+        background: #76CCE7;
         padding: 0px 15px 15px 15px;
         h2 {
             font-size: 20px;
@@ -52,13 +52,15 @@ h3 {
             #fullname--error {
                 display: flex;
                 justify-content: flex-end;
-                font-size: 14px;
+                font-size: 12px;
                 color: red;
             }
             #mail--error,
             #phone--error,
             #addr--error,
-            #gender--error {
+            #gender--error,
+            #pass--error,
+            #repass--error {
                 @extend #fullname--error;
             }
             .gender {

@@ -20,7 +20,7 @@
 
 </head>
 
-<body>
+<body onload="renderListStudents()">
     <h3 style="text-align: center; color: orange;">QUẢN LÝ SINH VIÊN</h3>
     <div class="containerMain">
         <div class="studensInfo">
@@ -72,13 +72,13 @@
 
                 <div class="info">
                     <label for="">Mật khẩu</label>
-                    <input type="password" id="pass" placeholder="********">
+                    <input type="password" id="password" placeholder="********">
                 </div>
                 <span id="pass--error"></span>
 
                 <div class="info">
                     <label for="">Nhập lại mật khẩu</label>
-                    <input type="password" id="repass" placeholder="********">
+                    <input type="password" id="repassword" placeholder="********">
                 </div>
                 <span id="repass--error"></span>
 
@@ -100,7 +100,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="list--studens">
+                    <tbody id="list--students">
 
                     </tbody>
                 </table>
