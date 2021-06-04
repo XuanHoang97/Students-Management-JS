@@ -110,18 +110,33 @@
         }
     }
 
+    // Add students
     function renderListStudents() {
         let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
 
+        // Check show/hidden list--students
         // if (students.length === 0) {
         //     document.getElementById('list--students').style.display = 'none';
         //     return false;
         // }
         // document.getElementById('list--students').style.display = 'block';
 
+        tableContent = `
+        <tr class="info">
+            <th>#</th>
+            <th>Họ và tên</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>`;
+
         students.forEach((students, index) => {
+            let studentsId = index;
+
             index++;
-            tableContent = `<tr>
+            tableContent += `<tr>
                 <td>${index}</td>
                 <td>${students.fullName}</td>
                 <td>${students.email}</td>
@@ -129,10 +144,22 @@
                 <td>${students.addr}</td>
                 <td>${students.gender}</td>
                 <td class="control">
-                    <a href="#">Sửa</a>
-                    <a href="#">Xoá</a>
+                    <a href="#" >Sửa</a>
+                    <a href="#" onclick="deleteStudents(${studentsId})">Xoá</a>
                 </td>
             </tr>`;
         })
         document.getElementById('list--students').innerHTML = tableContent;
+
+    }
+
+    // Delete Students
+    function deleteStudents(id, tableContent) {
+        let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
+        alert('Đã xoá sinh viên' + students.fullName)
+        students.splice('id', 1);
+
+        localStorage.setItem('students', JSON.stringify(students));
+        renderListStudents();
+
     }
