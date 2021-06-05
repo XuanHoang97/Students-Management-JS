@@ -39,6 +39,7 @@
             isFullName.innerHTML = 'Không được nhâp lớn hơn 20 ký tự ';
         } else {
             isFullName.innerHTML = '';
+            isFullName = true;
         }
 
         // Validate email
@@ -48,6 +49,7 @@
             isMail.innerHTML = 'Định dạng email sai, vui lòng nhập lại';
         } else {
             isMail.innerHTML = '';
+            isMail = true;
         }
 
         // Validate phone
@@ -56,10 +58,10 @@
         } else if (!vnf_regex.test(phone)) {
             isPhone.innerHTML = "Sai định dạng số điện thoại";
         } else if (phone.trim().length > 11) {
-            phone = '';
             isPhone.innerHTML = 'Số điện thoại không được quá 11 số';
         } else {
             isPhone.innerHTML = '';
+            isPhone = true;
         }
 
         // Validate address
@@ -68,6 +70,7 @@
             isAddr.innerHTML = "Vui lòng nhập địa chỉ";
         } else {
             isAddr.innerHTML = '';
+            isAddr = true;
         }
 
         // Validate gender
@@ -76,6 +79,7 @@
             isGender.innerHTML = "Vui lòng chọn giới tính";
         } else {
             isGender.innerHTML = '';
+            isGender = true;
         }
 
         // Validate password
@@ -83,6 +87,7 @@
             isPass.innerHTML = "Vui lòng nhập mật khẩu";
         } else {
             isPass.innerHTML = '';
+            isPass = true;
         }
 
         // Validate repassword
@@ -90,6 +95,7 @@
             isRepass.innerHTML = "Vui lòng Nhập mật khẩu";
         } else {
             isRepass.innerHTML = '';
+            isRepass = true;
         }
 
         // CRUD Students
@@ -107,6 +113,8 @@
 
             localStorage.setItem('students', JSON.stringify(students));
             this.renderListStudents();
+        } else if (!fullName || !email || !phone || !addr || !gender) {
+            // code handle
         }
     }
 
@@ -144,8 +152,9 @@
                 <td>${students.addr}</td>
                 <td>${students.gender}</td>
                 <td class="control">
-                    <a href="#" >Sửa</a>
-                    <a href="#" onclick="deleteStudents(${studentsId})">Xoá</a>
+                    <a href="#" onclick="edit(${studentsId})">Edit</a>
+                    <a href="#" onclick="deleteStudents(${studentsId})">Delete</a>
+                    <a href="#">Copy</a>
                 </td>
             </tr>`;
         })
@@ -156,10 +165,38 @@
     // Delete Students
     function deleteStudents(id, tableContent) {
         let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
-        alert('Đã xoá sinh viên' + students.fullName)
-        students.splice('id', 1);
+        alert('Xoá sinh viên: ' + students[id].fullName)
+        students.splice(id, 1);
 
         localStorage.setItem('students', JSON.stringify(students));
         renderListStudents();
 
+    }
+
+
+
+    //reset value input
+
+    function reset() {
+        document.getElementById('fullName').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('addr').value = '';
+    }
+
+    // Edit students
+
+    function edit(index) {
+        {
+            let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
+
+            document.getElementById('fullName').value = students.fullName;
+            document.getElementById('email').value = students.email;
+            document.getElementById('phone').value = students.phone;
+            document.getElementById('addr').value = students.addr;
+
+            localStorage.setItem('students', JSON.stringify(students));
+            renderListStudents();
+
+        }
     }

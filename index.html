@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="variable.scss">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css" integrity="undefined" crossorigin="anonymous">
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery.js"></script>
@@ -21,34 +22,34 @@
 </head>
 
 <body onload="renderListStudents()">
-    <h3 style="text-align: center; color: orange;">QUẢN LÝ SINH VIÊN</h3>
+    <h3 style="width: 90%; margin: 15px auto; color: orange;">QUẢN LÝ SINH VIÊN</h3>
     <div class="containerMain">
         <div class="studensInfo">
             <h2>Thông tin sinh viên</h2>
             <div class="detail__info">
                 <div class="info">
-                    <label for="">Họ tên</label>
+                    <label for="">Họ và tên</label>
                     <input type="text" id="fullName" placeholder="Xuân Hoàng...">
                 </div>
                 <span id="fullname--error"></span>
 
 
                 <div class="info">
-                    <label for="">Email</label>
+                    <label for="">Địa chỉ Email</label>
                     <input type="text" id="email" placeholder="Xuanhoang997@gmail.com...">
                 </div>
                 <span id="mail--error"></span>
 
 
                 <div class="info">
-                    <label for="">SĐT</label>
+                    <label for="">Số điện thoại</label>
                     <input type="text" id="phone" placeholder="0936352977">
                 </div>
                 <span id="phone--error"></span>
 
 
                 <div class="info">
-                    <label for="">Địa chỉ</label>
+                    <label for="">Quê quán</label>
                     <input type="text" id="addr" placeholder="Hà Nội">
                 </div>
                 <span id="addr--error"></span>
@@ -82,15 +83,21 @@
                 </div>
                 <span id="repass--error"></span>
 
-                <button onclick="save()">Lưu lại </button>
+                <div class="handle">
+                    <div></div>
+                    <button onclick="save()" id="add">Add</button>
+                    <div class="reset" onclick="reset()">
+                        <i class="fas fa-sync" title="reset gia tri nhap vao"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="studensList">
             <h2>Danh sách sinh viên</h2>
             <div class="detail__list">
-                <table class="table table-hover table-striped table-bordered">
-                    <thead></thead>
-                    <tbody id="list--students"></tbody>
+                <table class="table table-hover table-striped" id="list--students">
+                    <!-- <thead></thead> -->
+                    <!-- <tbody id="list--students"></tbody> -->
                 </table>
             </div>
         </div>
