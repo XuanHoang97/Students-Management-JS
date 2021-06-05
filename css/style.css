@@ -23,11 +23,16 @@ a {
     .containerMain {
       display: flex;
       width: 100%;
-      flex-direction: column; } }
+      flex-direction: column;
+      background: #ccc; } }
   .containerMain .studensInfo {
     padding: 0px 15px 15px 15px;
     border: 1px solid #dad9d9;
     border-radius: 10px; }
+    @media (max-width: 576px) {
+      .containerMain .studensInfo {
+        border-radius: 0;
+        background: white; } }
     .containerMain .studensInfo h2 {
       font-size: 20px;
       margin-bottom: 30px; }
@@ -40,7 +45,7 @@ a {
       align-items: center;
       margin: 10px 0; }
       .containerMain .studensInfo .detail__info .info label {
-        font-weight: normal;
+        font-weight: 450;
         font-size: 14px; }
       .containerMain .studensInfo .detail__info .info input {
         padding: 3px 10px;
@@ -70,7 +75,7 @@ a {
       grid-template-columns: 30% 70%;
       align-items: center; }
       .containerMain .studensInfo .detail__info .gender label {
-        font-weight: normal;
+        font-weight: 450;
         font-size: 14px; }
       .containerMain .studensInfo .detail__info .gender .gender--item {
         display: flex;
@@ -101,37 +106,140 @@ a {
     border-radius: 10px; }
     @media (max-width: 576px) {
       .containerMain .studensList {
-        background: transparent; } }
-    .containerMain .studensList .heading__list {
+        background: white;
+        border-radius: 0; } }
+    @media (max-width: 576px) {
+      .containerMain .studensList .heading__list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; } }
+    .containerMain .studensList .heading__list h2 {
+      font-size: 2rem;
+      margin-bottom: 30px; }
+      @media (max-width: 576px) {
+        .containerMain .studensList .heading__list h2 {
+          text-align: start; } }
+    .containerMain .studensList .heading__list .module {
       display: grid;
-      grid-template-columns: 30% 35% 35%;
+      grid-template-columns: 40% 50% 10%;
       align-items: center;
-      gap: 1rem; }
-      .containerMain .studensList .heading__list h2 {
-        font-size: 2rem;
-        margin-bottom: 30px; }
-        @media (max-width: 576px) {
-          .containerMain .studensList .heading__list h2 {
-            text-align: start; } }
-      .containerMain .studensList .heading__list .filter {
+      margin: 15px 0; }
+      @media (max-width: 576px) {
+        .containerMain .studensList .heading__list .module {
+          width: 100%;
+          grid-template-columns: 37% 63%;
+          margin-bottom: 15px; } }
+      .containerMain .studensList .heading__list .module .filter {
         display: flex;
         align-items: center;
         gap: 1rem; }
-        .containerMain .studensList .heading__list .filter select {
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list .module .filter span {
+            display: none; } }
+        .containerMain .studensList .heading__list .module .filter select {
           width: 12rem;
           border-radius: 5px;
           padding: 3px;
           outline: none;
           height: 2.7rem;
           border: 1px solid #ccc; }
-      .containerMain .studensList .heading__list .search {
-        text-align: center; }
-        .containerMain .studensList .heading__list .search input,
-        .containerMain .studensList .heading__list .search button {
+      .containerMain .studensList .heading__list .module .search {
+        text-align: center;
+        display: flex;
+        gap: 3px;
+        justify-content: flex-end; }
+        .containerMain .studensList .heading__list .module .search input,
+        .containerMain .studensList .heading__list .module .search button {
           border-radius: 5px;
           outline: none;
           border: 1px solid #ccc;
           height: 2.7rem; }
+      .containerMain .studensList .heading__list .module .menu {
+        text-align: end;
+        font-size: 25px;
+        color: teal;
+        cursor: pointer; }
+      .containerMain .studensList .heading__list .module .navMenu {
+        background: #fbeaad;
+        padding: 15px;
+        position: absolute;
+        right: 7rem;
+        top: 17rem;
+        width: 40rem;
+        border-radius: 5px;
+        transition: all 2s ease-out;
+        box-shadow: 0 0 5px #aaaaaa; }
+        .containerMain .studensList .heading__list .module .navMenu .setup__data {
+          display: grid;
+          grid-template-columns: 40% 60%; }
+          .containerMain .studensList .heading__list .module .navMenu .setup__data .download {
+            width: 12rem;
+            background: #46b14f;
+            border-radius: 5px;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            color: white;
+            gap: 1rem;
+            justify-content: center;
+            padding: 5px 10px;
+            cursor: pointer; }
+          .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .setting {
+            display: flex;
+            background-color: #909090;
+            color: #ffffff;
+            align-items: center;
+            font-size: 14px;
+            gap: 1rem;
+            padding: 6px 8px;
+            cursor: pointer;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease-in-out; }
+        .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update,
+        .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete,
+        .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro {
+          display: grid;
+          grid-template-columns: 70% 30%; }
+          .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+            /* Rounded sliders */ }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input {
+              opacity: 0;
+              width: 0;
+              height: 0; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider {
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: #ccc;
+              transition: .4s; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider:before {
+              position: absolute;
+              content: "";
+              height: 22px;
+              width: 22px;
+              left: 4px;
+              bottom: 4px;
+              background-color: white;
+              -webkit-transition: .4s;
+              transition: .4s; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input:checked + .slider {
+              background-color: #2196F3; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input:checked + .slider:before {
+              -webkit-transform: translateX(26px);
+              -ms-transform: translateX(26px);
+              transform: translateX(26px); }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider.round, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider.round, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider.round, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider.round {
+              border-radius: 34px; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider.round:before {
+              border-radius: 50%; }
     @media (max-width: 576px) {
       .containerMain .studensList .detail__list table .info {
         display: none; } }
@@ -144,8 +252,8 @@ a {
       @media (max-width: 576px) {
         .containerMain .studensList .detail__list table tbody tr {
           display: grid;
-          grid-template-columns: 23% 46% 31%;
-          font-size: 12px; } }
+          grid-template-columns: 20% 49% 31%;
+          font-size: 11px; } }
       @media (max-width: 576px) {
         .containerMain .studensList .detail__list table tbody tr td:first-child {
           display: none; } }
@@ -175,10 +283,13 @@ a {
     .containerMain .studensList .pagination {
       display: grid;
       grid-template-columns: 10% 10% 60% 10% 10%;
-      width: 40%;
+      width: 35%;
       margin: auto;
       align-items: center;
       cursor: pointer; }
+      @media (max-width: 576px) {
+        .containerMain .studensList .pagination {
+          width: 70%; } }
       .containerMain .studensList .pagination .double--prev,
       .containerMain .studensList .pagination .prev,
       .containerMain .studensList .pagination .next,
@@ -192,14 +303,14 @@ a {
         justify-content: center; }
         .containerMain .studensList .pagination .numb .numb--item, .containerMain .studensList .pagination .numb .active {
           background: #ccc;
-          width: 30px;
-          height: 30px;
+          width: 27px;
+          height: 27px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           font-size: 13px; }
         .containerMain .studensList .pagination .numb .active {
-          background: #08806c;
+          background: #00ac1d;
           color: white;
           font-weight: bold; }

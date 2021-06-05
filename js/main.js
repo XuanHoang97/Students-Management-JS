@@ -237,3 +237,18 @@
         }
 
     }
+
+    // Menu
+
+    function Menu() {
+        close = document.querySelector('#navmenu');
+        var menu = document.querySelector(".navMenu");
+        if (menu.style.display === "none") {
+            menu.style.display = "grid";
+            close.className = 'fas fa-times';
+        } else {
+            menu.style.display = "none";
+            close.className = 'fas fa-bars';
+        }
+
+    }

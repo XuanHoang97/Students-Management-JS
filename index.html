@@ -103,20 +103,82 @@
             <div class="heading__list">
                 <h2>Danh sách sinh viên</h2>
 
-                <div class="filter">
-                    <span>Filter</span>
-                    <select name="" id="">
-                    <option value="">Họ và tên</option>
-                    <option value="">Mã sinh viên</option>
-                    <option value="">Địa chỉ</option>
-                    <option value="">Giới tính</option>
-                </select>
+                <div class="module">
+                    <div class="filter">
+                        <span>Lọc danh sách</span>
+                        <select name="" id="">
+                        <option value="">Họ và tên</option>
+                        <option value="">Mã sinh viên</option>
+                        <option value="">Khoa</option>
+                        <option value="">Lớp</option>
+                        <option value="">Địa chỉ</option>
+                        </select>
+                    </div>
+
+                    <div class="search">
+                        <span>Search &nbsp;</span>
+                        <input type="text">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+
+                    <div class="menu" onclick="Menu()">
+                        <i class="fas fa-bars" id="navmenu"></i>
+                    </div>
+                    <div class="navMenu">
+                        <div class="setup__data">
+                            <div class="download">
+                                <span>Tải xuống</span>
+                                <i class="fas fa-download"></i>
+                            </div>
+
+                            <div class="setup__item">
+                                <div class="setting">
+                                    <i class="fas fa-cogs"></i>
+                                    <span>Cài đặt dữ liệu theo mẫu</span>
+                                    <i class="fas fa-sort-down"></i>
+                                </div>
+
+                                <div class="option">
+                                    <p>Danh sách 3 sinh viên mới</p>
+                                    <p>Danh sách 5 sinh viên mới</p>
+                                    <p>Danh sách 10 sinh viên mới</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting__detail">
+                            <div class="alert__add">
+                                <span>Gửi thông báo sau khi Thêm mới</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="alert__update">
+                                <span>Gửi thông báo sau khi cập nhật</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="alert__delete">
+                                <span>Gửi thông báo sau khi Xoá bỏ</span>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <div class="alert__intro">
+                                <span>Chạy đoạn giới thiệu mở đầu</span>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="search">
-                    <input type="text">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
             </div>
 
             <div class="detail__list">

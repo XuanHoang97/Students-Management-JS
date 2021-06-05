@@ -20,11 +20,16 @@ h3 {
         display: flex;
         width: 100%;
         flex-direction: column;
+        background: #ccc;
     }
     .studensInfo {
         padding: 0px 15px 15px 15px;
         border: 1px solid #dad9d9;
         border-radius: 10px;
+        @include phone {
+            border-radius: 0;
+            background: white;
+        }
         h2 {
             font-size: 20px;
             margin-bottom: 30px;
@@ -39,7 +44,7 @@ h3 {
                 align-items: center;
                 margin: 10px 0;
                 label {
-                    font-weight: normal;
+                    font-weight: 450;
                     font-size: 14px;
                 }
                 input {
@@ -78,7 +83,7 @@ h3 {
                 grid-template-columns: 30% 70%;
                 align-items: center;
                 label {
-                    font-weight: normal;
+                    font-weight: 450;
                     font-size: 14px;
                 }
                 .gender--item {
@@ -116,13 +121,15 @@ h3 {
         border: 1px solid #ccc;
         border-radius: 10px;
         @include phone {
-            background: transparent;
+            background: white;
+            border-radius: 0;
         }
         .heading__list {
-            display: grid;
-            grid-template-columns: 30% 35% 35%;
-            align-items: center;
-            gap: 1rem;
+            @include phone {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
             h2 {
                 font-size: 2rem;
                 margin-bottom: 30px;
@@ -130,27 +137,153 @@ h3 {
                     text-align: start;
                 }
             }
-            .filter {
-                display: flex;
+            .module {
+                display: grid;
+                grid-template-columns: 40% 50% 10%;
                 align-items: center;
-                gap: 1rem;
-                select {
-                    width: 12rem;
-                    border-radius: 5px;
-                    padding: 3px;
-                    outline: none;
-                    height: 2.7rem;
-                    border: 1px solid #ccc;
+                margin: 15px 0;
+                @include phone {
+                    width: 100%;
+                    grid-template-columns: 37% 63%;
+                    margin-bottom: 15px;
                 }
-            }
-            .search {
-                text-align: center;
-                input,
-                button {
+                .filter {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    span {
+                        @include phone {
+                            display: none;
+                        }
+                    }
+                    select {
+                        width: 12rem;
+                        border-radius: 5px;
+                        padding: 3px;
+                        outline: none;
+                        height: 2.7rem;
+                        border: 1px solid #ccc;
+                    }
+                }
+                .search {
+                    text-align: center;
+                    display: flex;
+                    gap: 3px;
+                    justify-content: flex-end;
+                    input,
+                    button {
+                        border-radius: 5px;
+                        outline: none;
+                        border: 1px solid #ccc;
+                        height: 2.7rem;
+                    }
+                }
+                .menu {
+                    text-align: end;
+                    font-size: 25px;
+                    color: teal;
+                    cursor: pointer;
+                }
+                .navMenu {
+                    background: #fbeaad;
+                    padding: 15px;
+                    position: absolute;
+                    right: 7rem;
+                    top: 17rem;
+                    width: 40rem;
                     border-radius: 5px;
-                    outline: none;
-                    border: 1px solid #ccc;
-                    height: 2.7rem;
+                    transition: all 2s ease-out;
+                    box-shadow: 0 0 5px #aaaaaa;
+                    .setup__data {
+                        display: grid;
+                        grid-template-columns: 40% 60%;
+                        .download {
+                            width: 12rem;
+                            background: #46b14f;
+                            border-radius: 5px;
+                            height: 3rem;
+                            display: flex;
+                            align-items: center;
+                            color: white;
+                            gap: 1rem;
+                            justify-content: center;
+                            padding: 5px 10px;
+                            cursor: pointer;
+                        }
+                        .setup__item {
+                            .setting {
+                                display: flex;
+                                background-color: #909090;
+                                color: #ffffff;
+                                align-items: center;
+                                font-size: 14px;
+                                gap: 1rem;
+                                padding: 6px 8px;
+                                cursor: pointer;
+                                border: 1px solid #cccccc;
+                                border-radius: 5px;
+                                transition: background-color 0.3s ease-in-out;
+                            }
+                        }
+                    }
+                    .setting__detail {
+                        .alert__add {
+                            display: grid;
+                            grid-template-columns: 70% 30%;
+                            .switch {
+                                position: relative;
+                                display: inline-block;
+                                width: 60px;
+                                height: 30px;
+                                input {
+                                    opacity: 0;
+                                    width: 0;
+                                    height: 0;
+                                }
+                                .slider {
+                                    position: absolute;
+                                    cursor: pointer;
+                                    top: 0;
+                                    left: 0;
+                                    right: 0;
+                                    bottom: 0;
+                                    background-color: #ccc;
+                                    transition: .4s;
+                                }
+                                .slider:before {
+                                    position: absolute;
+                                    content: "";
+                                    height: 22px;
+                                    width: 22px;
+                                    left: 4px;
+                                    bottom: 4px;
+                                    background-color: white;
+                                    -webkit-transition: .4s;
+                                    transition: .4s;
+                                }
+                                input:checked+.slider {
+                                    background-color: #2196F3;
+                                }
+                                input:checked+.slider:before {
+                                    -webkit-transform: translateX(26px);
+                                    -ms-transform: translateX(26px);
+                                    transform: translateX(26px);
+                                }
+                                /* Rounded sliders */
+                                .slider.round {
+                                    border-radius: 34px;
+                                }
+                                .slider.round:before {
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+                        .alert__update,
+                        .alert__delete,
+                        .alert__intro {
+                            @extend .alert__add;
+                        }
+                    }
                 }
             }
         }
@@ -171,8 +304,8 @@ h3 {
                         grid-template-columns: 2.5% 16.5% 27% 13% 15% 8% 18%;
                         @include phone {
                             display: grid;
-                            grid-template-columns: 23% 46% 31%;
-                            font-size: 12px;
+                            grid-template-columns: 20% 49% 31%;
+                            font-size: 11px;
                         }
                         td:first-child {
                             @include phone {
@@ -215,10 +348,13 @@ h3 {
         .pagination {
             display: grid;
             grid-template-columns: 10% 10% 60% 10% 10%;
-            width: 40%;
+            width: 35%;
             margin: auto;
             align-items: center;
             cursor: pointer;
+            @include phone {
+                width: 70%;
+            }
             .double--prev,
             .prev,
             .next,
@@ -233,8 +369,8 @@ h3 {
                 justify-content: center;
                 .numb--item {
                     background: #ccc;
-                    width: 30px;
-                    height: 30px;
+                    width: 27px;
+                    height: 27px;
                     border-radius: 50%;
                     display: flex;
                     align-items: center;
@@ -242,7 +378,7 @@ h3 {
                     font-size: 13px;
                 }
                 .active {
-                    background: rgb(8, 128, 108);
+                    background: #00ac1d;
                     color: white;
                     font-weight: bold;
                     @extend .numb--item;
