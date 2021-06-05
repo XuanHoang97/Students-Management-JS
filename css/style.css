@@ -49,6 +49,12 @@ a {
         border-radius: 3px; }
       .containerMain .studensInfo .detail__info .info input:hover {
         border-color: #1dbfaf; }
+      .containerMain .studensInfo .detail__info .info .pass,
+      .containerMain .studensInfo .detail__info .info .repass {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer; }
     .containerMain .studensInfo .detail__info #fullname--error, .containerMain .studensInfo .detail__info #mail--error,
     .containerMain .studensInfo .detail__info #phone--error,
     .containerMain .studensInfo .detail__info #addr--error,
@@ -89,12 +95,6 @@ a {
         opacity: 0.8;
         font-size: 20px;
         cursor: pointer; }
-        .containerMain .studensInfo .detail__info .handle .reset i {
-          padding: 10px; }
-        .containerMain .studensInfo .detail__info .handle .reset i:hover {
-          background: #25ca33;
-          border-radius: 50%;
-          color: white; }
   .containerMain .studensList {
     padding: 0px 15px 15px 15px;
     border: 1px solid #ccc;

@@ -51,6 +51,13 @@ h3 {
                 input:hover {
                     border-color: #1dbfaf;
                 }
+                .pass,
+                .repass {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    cursor: pointer;
+                }
             }
             #fullname--error {
                 display: flex;
@@ -100,14 +107,6 @@ h3 {
                     opacity: 0.8;
                     font-size: 20px;
                     cursor: pointer;
-                    i {
-                        padding: 10px;
-                    }
-                    i:hover {
-                        background: rgb(37, 202, 51);
-                        border-radius: 50%;
-                        color: white;
-                    }
                 }
             }
         }

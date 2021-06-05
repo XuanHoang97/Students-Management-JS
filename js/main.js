@@ -1,5 +1,6 @@
     let mail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
+    let pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
 
     // Validate
     function save() {
@@ -9,7 +10,7 @@
         let addr = $('#addr').val();
         let gender = "";
         let pass = $('#password').val();
-        let repass = $('#repassword').val();
+        let repass = $('#repassWord').val();
 
         let male = document.getElementById('male');
         let female = document.getElementById('female');
@@ -45,7 +46,7 @@
         // Validate email
         if (_.isEmpty(email)) {
             isMail.innerHTML = "Vui lòng nhập email";
-        } else if (!mail.test(email)) {
+        } else if (!email.match(mail)) {
             isMail.innerHTML = 'Định dạng email sai, vui lòng nhập lại';
         } else {
             isMail.innerHTML = '';
@@ -55,7 +56,7 @@
         // Validate phone
         if (_.isEmpty(phone)) {
             isPhone.innerHTML = 'vui lòng nhập số điện thoại';
-        } else if (!vnf_regex.test(phone)) {
+        } else if (!phone.match(vnf_regex)) {
             isPhone.innerHTML = "Sai định dạng số điện thoại";
         } else if (phone.trim().length > 11) {
             isPhone.innerHTML = 'Số điện thoại không được quá 11 số';
@@ -85,6 +86,8 @@
         // Validate password
         if (_.isEmpty(pass)) {
             isPass.innerHTML = "Vui lòng nhập mật khẩu";
+        } else if (!password.value.match(pass)) {
+            isPass.innerHTML = 'Mật khẩu nhập vào phải chứa ít nhất một số và một chữ cái viết hoa và viết thường và ít nhất 8 ký tự trở lên ';
         } else {
             isPass.innerHTML = '';
             isPass = true;
@@ -99,7 +102,7 @@
         }
 
         // CRUD Students
-        if (fullName && email && phone && addr && gender) {
+        if (fullName && email && phone && addr && gender && pass && repass) {
             // Thêm ds sinh viên
             let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
 
@@ -165,18 +168,19 @@
     // Delete Students
     function deleteStudents(id, tableContent) {
         let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
-        alert('Xoá sinh viên: ' + students[id].fullName)
-        students.splice(id, 1);
+
+        // option delete 
+        if (confirm('Xoá sinh viên: ' + students[id].fullName)) {
+            students.splice(id, 1);
+
+        } else {}
 
         localStorage.setItem('students', JSON.stringify(students));
         renderListStudents();
 
     }
 
-
-
     //reset value input
-
     function reset() {
         document.getElementById('fullName').value = '';
         document.getElementById('email').value = '';
@@ -185,7 +189,6 @@
     }
 
     // Edit students
-
     function edit(index) {
         {
             let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
@@ -199,4 +202,38 @@
             renderListStudents();
 
         }
+    }
+
+    //show pass
+    var pw = document.getElementById('password');
+    var pw2 = document.getElementById('repassWord');
+    icon = document.querySelector('#eye');
+    icon2 = document.querySelector('#eye--close');
+
+    icon.onclick = function() {
+        if (pw.className == 'active') {
+            pw.setAttribute('type', 'text');
+            icon.className = 'fa fa-eye';
+            pw.className = '';
+
+        } else {
+            pw.setAttribute('type', 'password');
+            icon.className = 'fa fa-eye-slash';
+            pw.className = 'active';
+        }
+
+    }
+
+    icon2.onclick = function() {
+        if (pw2.className == 'active') {
+            pw2.setAttribute('type', 'text');
+            icon2.className = 'fa fa-eye';
+            pw2.className = '';
+
+        } else {
+            pw2.setAttribute('type', 'password');
+            icon2.className = 'fa fa-eye-slash';
+            pw2.className = 'active';
+        }
+
     }
