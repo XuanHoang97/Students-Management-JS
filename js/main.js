@@ -1,6 +1,7 @@
+    // Regex js
     let mail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     let vnf_regex = /((09|03|07|08|05)+([0-9]{8})\b)/g;
-    let pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    let pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
 
     // Validate
     function save() {
@@ -86,7 +87,7 @@
         // Validate password
         if (_.isEmpty(pass)) {
             isPass.innerHTML = "Vui lòng nhập mật khẩu";
-        } else if (!password.value.match(pass)) {
+        } else if (!password.value.match(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/)) {
             isPass.innerHTML = 'Mật khẩu nhập vào phải chứa ít nhất một số và một chữ cái viết hoa và viết thường và ít nhất 8 ký tự trở lên ';
         } else {
             isPass.innerHTML = '';
@@ -94,9 +95,13 @@
         }
 
         // Validate repassword
+        pass = document.getElementById('password');
+        repass = document.getElementById('repassWord');
         if (_.isEmpty(repass)) {
-            isRepass.innerHTML = "Vui lòng Nhập mật khẩu";
-        } else {
+            isRepass.innerHTML = "Vui lòng nhập mật khẩu";
+        } else if (repass.value != pass.value) {
+            isRepass.innerHTML = 'Mật khẩu không khớp';
+        } else if (repass.value == pass.value) {
             isRepass.innerHTML = '';
             isRepass = true;
         }
@@ -116,7 +121,7 @@
 
             localStorage.setItem('students', JSON.stringify(students));
             this.renderListStudents();
-        } else if (!fullName || !email || !phone || !addr || !gender) {
+        } else if (!fullName || !email || !phone || !addr || !gender || !pass || !repass) {
             // code handle
         }
     }
@@ -124,13 +129,6 @@
     // Add students
     function renderListStudents() {
         let students = localStorage.getItem('students') ? JSON.parse(localStorage.getItem('students')) : [];
-
-        // Check show/hidden list--students
-        // if (students.length === 0) {
-        //     document.getElementById('list--students').style.display = 'none';
-        //     return false;
-        // }
-        // document.getElementById('list--students').style.display = 'block';
 
         tableContent = `
         <tr class="info">
@@ -186,6 +184,8 @@
         document.getElementById('email').value = '';
         document.getElementById('phone').value = '';
         document.getElementById('addr').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('repassWord').value = '';
     }
 
     // Edit students

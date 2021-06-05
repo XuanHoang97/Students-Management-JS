@@ -29,14 +29,14 @@
             <div class="detail__info">
                 <div class="info">
                     <label for="">Họ và tên</label>
-                    <input type="text" id="fullName" placeholder="Xuân Hoàng...">
+                    <input type="text" id="fullName" placeholder="xuân Hoàng...">
                 </div>
                 <span id="fullname--error"></span>
 
 
                 <div class="info">
                     <label for="">Địa chỉ Email</label>
-                    <input type="text" id="email" placeholder="Xuanhoang997@gmail.com...">
+                    <input type="text" id="email" placeholder="xuanhoang997@gmail.com...">
                 </div>
                 <span id="mail--error"></span>
 
@@ -100,12 +100,52 @@
             </div>
         </div>
         <div class="studensList">
-            <h2>Danh sách sinh viên</h2>
+            <div class="heading__list">
+                <h2>Danh sách sinh viên</h2>
+
+                <div class="filter">
+                    <span>Filter</span>
+                    <select name="" id="">
+                    <option value="">Họ và tên</option>
+                    <option value="">Mã sinh viên</option>
+                    <option value="">Địa chỉ</option>
+                    <option value="">Giới tính</option>
+                </select>
+                </div>
+
+                <div class="search">
+                    <input type="text">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
             <div class="detail__list">
                 <table class="table table-hover table-striped" id="list--students">
                     <!-- <thead></thead> -->
                     <!-- <tbody id="list--students"></tbody> -->
                 </table>
+            </div>
+            <div class="pagination">
+                <div class="double--prev">
+                    <i class="fas fa-angle-double-left"></i>
+                </div>
+                <div class="prev">
+                    <i class="fas fa-angle-left"></i>
+                </div>
+                <div class="numb">
+                    <div class="numb--item active">1</div>
+                    <div class="numb--item">2</div>
+                    <div class="numb--item">3</div>
+                    <div class="numb--item">4</div>
+                </div>
+
+                <div class="prev">
+                    <i class="fas fa-angle-right"></i>
+                </div>
+
+                <div class="double--next">
+                    <i class="fas fa-angle-double-right"></i>
+                </div>
             </div>
         </div>
     </div>

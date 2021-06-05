@@ -118,11 +118,40 @@ h3 {
         @include phone {
             background: transparent;
         }
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            @include phone {
-                text-align: start;
+        .heading__list {
+            display: grid;
+            grid-template-columns: 30% 35% 35%;
+            align-items: center;
+            gap: 1rem;
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+                @include phone {
+                    text-align: start;
+                }
+            }
+            .filter {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                select {
+                    width: 12rem;
+                    border-radius: 5px;
+                    padding: 3px;
+                    outline: none;
+                    height: 2.7rem;
+                    border: 1px solid #ccc;
+                }
+            }
+            .search {
+                text-align: center;
+                input,
+                button {
+                    border-radius: 5px;
+                    outline: none;
+                    border: 1px solid #ccc;
+                    height: 2.7rem;
+                }
             }
         }
         .detail__list {
@@ -180,6 +209,46 @@ h3 {
                             }
                         }
                     }
+                }
+            }
+        }
+        .pagination {
+            display: grid;
+            grid-template-columns: 10% 10% 60% 10% 10%;
+            width: 40%;
+            margin: auto;
+            align-items: center;
+            cursor: pointer;
+            .double--prev,
+            .prev,
+            .next,
+            .double--next {
+                display: flex;
+                justify-content: center;
+                opacity: 0.8;
+            }
+            .numb {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+                .numb--item {
+                    background: #ccc;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 13px;
+                }
+                .active {
+                    background: rgb(8, 128, 108);
+                    color: white;
+                    font-weight: bold;
+                    @extend .numb--item;
+                }
+                .numb--item:nth-child() {
+                    @extend .numb--item;
                 }
             }
         }

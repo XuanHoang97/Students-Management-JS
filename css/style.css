@@ -102,12 +102,36 @@ a {
     @media (max-width: 576px) {
       .containerMain .studensList {
         background: transparent; } }
-    .containerMain .studensList h2 {
-      font-size: 2rem;
-      margin-bottom: 30px; }
-      @media (max-width: 576px) {
-        .containerMain .studensList h2 {
-          text-align: start; } }
+    .containerMain .studensList .heading__list {
+      display: grid;
+      grid-template-columns: 30% 35% 35%;
+      align-items: center;
+      gap: 1rem; }
+      .containerMain .studensList .heading__list h2 {
+        font-size: 2rem;
+        margin-bottom: 30px; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list h2 {
+            text-align: start; } }
+      .containerMain .studensList .heading__list .filter {
+        display: flex;
+        align-items: center;
+        gap: 1rem; }
+        .containerMain .studensList .heading__list .filter select {
+          width: 12rem;
+          border-radius: 5px;
+          padding: 3px;
+          outline: none;
+          height: 2.7rem;
+          border: 1px solid #ccc; }
+      .containerMain .studensList .heading__list .search {
+        text-align: center; }
+        .containerMain .studensList .heading__list .search input,
+        .containerMain .studensList .heading__list .search button {
+          border-radius: 5px;
+          outline: none;
+          border: 1px solid #ccc;
+          height: 2.7rem; }
     @media (max-width: 576px) {
       .containerMain .studensList .detail__list table .info {
         display: none; } }
@@ -148,3 +172,34 @@ a {
         .containerMain .studensList .detail__list table tbody tr td.control a:last-child {
           border: 1px solid orange;
           color: orange; }
+    .containerMain .studensList .pagination {
+      display: grid;
+      grid-template-columns: 10% 10% 60% 10% 10%;
+      width: 40%;
+      margin: auto;
+      align-items: center;
+      cursor: pointer; }
+      .containerMain .studensList .pagination .double--prev,
+      .containerMain .studensList .pagination .prev,
+      .containerMain .studensList .pagination .next,
+      .containerMain .studensList .pagination .double--next {
+        display: flex;
+        justify-content: center;
+        opacity: 0.8; }
+      .containerMain .studensList .pagination .numb {
+        display: flex;
+        gap: 1rem;
+        justify-content: center; }
+        .containerMain .studensList .pagination .numb .numb--item, .containerMain .studensList .pagination .numb .active {
+          background: #ccc;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 13px; }
+        .containerMain .studensList .pagination .numb .active {
+          background: #08806c;
+          color: white;
+          font-weight: bold; }
