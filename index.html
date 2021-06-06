@@ -18,7 +18,9 @@
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 
 <body onload="renderListStudents()">
@@ -112,6 +114,7 @@
                         <option value="">Khoa</option>
                         <option value="">Lớp</option>
                         <option value="">Địa chỉ</option>
+                        <option value="">Giới tính</option>
                         </select>
                     </div>
 
@@ -121,10 +124,38 @@
                         <button><i class="fas fa-search"></i></button>
                     </div>
 
+
+
                     <div class="menu" onclick="Menu()">
                         <i class="fas fa-bars" id="navmenu"></i>
                     </div>
-                    <div class="navMenu">
+                    <div class="navMenu unselectable" id="draggable" class="ui-widget-content">
+                        <div class="setting__more">
+                            <span>Tính năng mở rộng</span>
+                            <i class="fas fa-user-cog" id="popOver"></i>
+                            <div class="extend--feature">
+                                <div class="feature--item">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <span>Refresh Seach/Filter</span>
+                                </div>
+
+                                <div class="feature--item">
+                                    <i class="far fa-question-circle"></i>
+                                    <span>Hướng dẫn sử dụng Seach/Filter</span>
+                                </div>
+
+                                <div class="feature--item">
+                                    <i class="far fa-newspaper"></i>
+                                    <span>Liệt kê các phím tắt được cài đặt</span>
+                                </div>
+
+                                <div class="feature--item">
+                                    <i class="fas fa-info-circle"></i>
+                                    <span>Giới thiệu thông tin về sản phẩm</span>
+                                </div>
+
+                            </div>
+                        </div>
                         <div class="setup__data">
                             <div class="download">
                                 <span>Tải xuống</span>
@@ -139,9 +170,9 @@
                                 </div>
 
                                 <div class="option">
-                                    <p>Danh sách 3 sinh viên mới</p>
                                     <p>Danh sách 5 sinh viên mới</p>
                                     <p>Danh sách 10 sinh viên mới</p>
+                                    <p>Danh sách 15 sinh viên mới</p>
                                 </div>
                             </div>
                         </div>
@@ -213,6 +244,14 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Kéo thả UI -->
+    <script>
+        $(function() {
+            $('#draggable').draggable();
+        });
+    </script>
+
 </body>
 
 </html>

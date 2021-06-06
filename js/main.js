@@ -239,7 +239,6 @@
     }
 
     // Menu
-
     function Menu() {
         close = document.querySelector('#navmenu');
         var menu = document.querySelector(".navMenu");
@@ -252,3 +251,36 @@
         }
 
     }
+
+    // Note Alert intro
+    setTimeout(function() { alert("Menu có thể kéo thả ra vị trí khác để dễ sử dụng hơn"); }, 15000);
+
+
+    // feature extends
+    $("#popOver").click(function(e) {
+        $(".extend--feature").toggle();
+        e.stopPropagation();
+    });
+
+    $(".extend--feature").click(function(e) {
+        e.stopPropagation();
+    });
+
+    $(document).click(function() {
+        $(".extend--feature").hide();
+    });
+
+
+    // Option data
+    $(".setting").click(function(e) {
+        $(".option").toggle();
+        e.stopPropagation();
+    });
+
+    $(".option").click(function(e) {
+        e.stopPropagation();
+    });
+
+    $(document).click(function() {
+        $(".option").hide();
+    });

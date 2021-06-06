@@ -147,7 +147,11 @@ a {
         text-align: center;
         display: flex;
         gap: 3px;
-        justify-content: flex-end; }
+        justify-content: flex-end;
+        align-items: center; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list .module .search span {
+            display: none; } }
         .containerMain .studensList .heading__list .module .search input,
         .containerMain .studensList .heading__list .module .search button {
           border-radius: 5px;
@@ -159,19 +163,66 @@ a {
         font-size: 25px;
         color: teal;
         cursor: pointer; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list .module .menu {
+            position: absolute;
+            inset: auto 2rem 26.5rem; } }
       .containerMain .studensList .heading__list .module .navMenu {
+        display: none;
         background: #fbeaad;
-        padding: 15px;
+        padding: 20px 15px;
         position: absolute;
         right: 7rem;
         top: 17rem;
         width: 40rem;
         border-radius: 5px;
-        transition: all 2s ease-out;
-        box-shadow: 0 0 5px #aaaaaa; }
+        box-shadow: 0 0 5px #aaaaaa;
+        cursor: move;
+        z-index: 10; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list .module .navMenu {
+            position: absolute;
+            width: 92%;
+            margin: auto;
+            inset: auto; } }
+        .containerMain .studensList .heading__list .module .navMenu .setting__more {
+          display: grid;
+          font-size: 20px;
+          margin-bottom: 20px;
+          cursor: pointer;
+          grid-template-columns: 50% 50%; }
+          @media (max-width: 576px) {
+            .containerMain .studensList .heading__list .module .navMenu .setting__more {
+              grid-template-columns: 60% 40%; } }
+          .containerMain .studensList .heading__list .module .navMenu .setting__more span {
+            color: #34b43e;
+            font-weight: 500; }
+          .containerMain .studensList .heading__list .module .navMenu .setting__more i {
+            color: cornflowerblue;
+            text-align: end; }
+          .containerMain .studensList .heading__list .module .navMenu .setting__more i:hover {
+            color: #34b43e; }
+          .containerMain .studensList .heading__list .module .navMenu .setting__more .extend--feature {
+            background: white;
+            font-size: 14px;
+            position: absolute;
+            top: 5rem;
+            right: 2rem;
+            width: 28rem;
+            z-index: 99;
+            display: none;
+            padding: 10px 0; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__more .extend--feature .feature--item {
+              display: flex;
+              gap: 1rem;
+              align-items: center;
+              padding: 10px 15px; }
+            .containerMain .studensList .heading__list .module .navMenu .setting__more .extend--feature .feature--item:hover {
+              background: #ffe9e9; }
         .containerMain .studensList .heading__list .module .navMenu .setup__data {
           display: grid;
-          grid-template-columns: 40% 60%; }
+          grid-template-columns: 40% 60%;
+          margin-bottom: 25px; }
           .containerMain .studensList .heading__list .module .navMenu .setup__data .download {
             width: 12rem;
             background: #46b14f;
@@ -196,16 +247,33 @@ a {
             border: 1px solid #cccccc;
             border-radius: 5px;
             transition: background-color 0.3s ease-in-out; }
+            @media (max-width: 576px) {
+              .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .setting {
+                font-size: 11px;
+                letter-spacing: 0.25px; } }
+          .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .option {
+            display: none;
+            background: white;
+            padding: 0; }
+            .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .option p {
+              padding: 5px 10px; }
+            .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .option p:hover {
+              background: #279727;
+              color: white;
+              cursor: pointer; }
         .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update,
         .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete,
         .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro {
           display: grid;
-          grid-template-columns: 70% 30%; }
+          grid-template-columns: 70% 30%;
+          margin: 10px 0px; }
+          .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro span {
+            font-weight: 500; }
           .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch {
             position: relative;
             display: inline-block;
-            width: 60px;
-            height: 30px;
+            width: 50px;
+            height: 22px;
             /* Rounded sliders */ }
             .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input {
               opacity: 0;
@@ -223,15 +291,15 @@ a {
             .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider:before {
               position: absolute;
               content: "";
-              height: 22px;
-              width: 22px;
-              left: 4px;
-              bottom: 4px;
+              height: 19px;
+              width: 19px;
+              left: 3px;
+              bottom: 2px;
               background-color: white;
               -webkit-transition: .4s;
               transition: .4s; }
             .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input:checked + .slider, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input:checked + .slider {
-              background-color: #2196F3; }
+              background-color: #08c045; }
             .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch input:checked + .slider:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch input:checked + .slider:before {
               -webkit-transform: translateX(26px);
               -ms-transform: translateX(26px);
@@ -240,6 +308,12 @@ a {
               border-radius: 34px; }
             .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch .slider.round:before, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch .slider.round:before {
               border-radius: 50%; }
+      .containerMain .studensList .heading__list .module .unselectable {
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none; }
     @media (max-width: 576px) {
       .containerMain .studensList .detail__list table .info {
         display: none; } }
