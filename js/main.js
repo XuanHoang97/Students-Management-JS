@@ -241,7 +241,7 @@
     // Menu
     function Menu() {
         close = document.querySelector('#navmenu');
-        var menu = document.querySelector(".navMenu");
+        const menu = document.querySelector(".navMenu");
         if (menu.style.display === "none") {
             menu.style.display = "grid";
             close.className = 'fas fa-times';
@@ -284,3 +284,32 @@
     $(document).click(function() {
         $(".option").hide();
     });
+
+    // Search
+    $("#search").click(function() {
+        alert('Chưa xử lý');
+        document.getElementById('search--input').value = '';
+    });
+
+    // Fetch API
+    var postApi = "https://jsonplaceholder.typicode.com/posts";
+    fetch(postApi)
+        .then(function(response) {
+            return response.json();
+        })
+
+    .then(function(posts) {
+        var htmls = posts.map(function(post) {
+            return `<li>
+                <h2>${post.title}</h2>
+                <p>${post.body}</p>
+            </li>`;
+        });
+        var html = htmls.join('');
+        document.getElementById('test').innerHTML = html;
+        // $('#test').innerHTML = htmls.join("");
+    })
+
+    .catch(function(err) {
+        console.log('co loi');
+    })
