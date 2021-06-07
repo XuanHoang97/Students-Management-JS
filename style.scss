@@ -14,7 +14,7 @@ h4 {
     display: grid;
     width: 90%;
     margin: auto;
-    grid-template-columns: 32% 68%;
+    grid-template-columns: 31% 68%;
     gap: 1rem;
     @include phone {
         display: flex;
@@ -45,7 +45,7 @@ h4 {
                 margin: 10px 0;
                 label {
                     font-weight: 450;
-                    font-size: 14px;
+                    font-size: 13px;
                 }
                 input {
                     padding: 3px 10px;
@@ -62,6 +62,9 @@ h4 {
                     align-items: center;
                     justify-content: space-between;
                     cursor: pointer;
+                    input {
+                        width: 85%;
+                    }
                 }
             }
             #fullname--error {
@@ -112,6 +115,9 @@ h4 {
                     opacity: 0.8;
                     font-size: 20px;
                     cursor: pointer;
+                    @include phone {
+                        font-size: 16px;
+                    }
                 }
             }
         }
@@ -142,6 +148,7 @@ h4 {
                 grid-template-columns: 40% 50% 10%;
                 align-items: center;
                 margin: 15px 0;
+                position: relative;
                 @include phone {
                     width: 100%;
                     grid-template-columns: 37% 63%;
@@ -183,6 +190,11 @@ h4 {
                         border: 1px solid #ccc;
                         height: 2.7rem;
                     }
+                    input#search--input {
+                        @include phone {
+                            width: 75%;
+                        }
+                    }
                 }
                 .menu {
                     text-align: end;
@@ -191,7 +203,7 @@ h4 {
                     cursor: pointer;
                     @include phone {
                         position: absolute;
-                        inset: auto 2rem 26.5rem;
+                        inset: auto 0rem 6.5rem;
                     }
                 }
                 .navMenu {
@@ -208,7 +220,7 @@ h4 {
                     z-index: 10;
                     @include phone {
                         position: absolute;
-                        width: 92%;
+                        width: 100%;
                         margin: auto;
                         inset: auto;
                     }
@@ -219,11 +231,14 @@ h4 {
                         cursor: pointer;
                         grid-template-columns: 50% 50%;
                         @include phone {
-                            grid-template-columns: 60% 40%;
+                            grid-template-columns: 70% 30%;
                         }
                         span {
                             color: #34b43e;
                             font-weight: 500;
+                            @include phone {
+                                font-size: 16px;
+                            }
                         }
                         i {
                             color: cornflowerblue;
@@ -257,6 +272,9 @@ h4 {
                         display: grid;
                         grid-template-columns: 40% 60%;
                         margin-bottom: 25px;
+                        @include phone {
+                            grid-template-columns: 50% 50%;
+                        }
                         .download {
                             width: 12rem;
                             background: #46b14f;
@@ -269,6 +287,7 @@ h4 {
                             justify-content: center;
                             padding: 5px 10px;
                             cursor: pointer;
+                            span {}
                         }
                         .setup__item {
                             .setting {
@@ -284,7 +303,7 @@ h4 {
                                 border-radius: 5px;
                                 transition: background-color 0.3s ease-in-out;
                                 @include phone {
-                                    font-size: 11px;
+                                    font-size: 10px;
                                     letter-spacing: 0.25px;
                                 }
                             }
@@ -310,6 +329,9 @@ h4 {
                             margin: 10px 0px;
                             span {
                                 font-weight: 500;
+                                @include phone {
+                                    font-size: 12px;
+                                }
                             }
                             .switch {
                                 position: relative;
@@ -392,8 +414,9 @@ h4 {
                         grid-template-columns: 2.5% 16.5% 27% 13% 15% 8% 18%;
                         @include phone {
                             display: grid;
-                            grid-template-columns: 20% 49% 31%;
+                            grid-template-columns: 22% 49% 28%;
                             font-size: 11px;
+                            text-align: start;
                         }
                         td:first-child {
                             @include phone {
@@ -409,12 +432,19 @@ h4 {
                             gap: 3px;
                             width: 90%;
                             margin: auto;
+                            @include phone {
+                                grid-template-columns: 50% 50%;
+                            }
                             a {
                                 text-decoration: none;
                                 padding: 3px;
                                 font-size: 10px;
                                 border-radius: 5px;
                                 font-weight: bold;
+                                @include phone {
+                                    padding: 0;
+                                    text-align: center;
+                                }
                             }
                             a:first-child {
                                 border: 1px solid #4b4bfd;
@@ -427,6 +457,9 @@ h4 {
                             a:last-child {
                                 border: 1px solid orange;
                                 color: orange;
+                                @include phone {
+                                    display: none;
+                                }
                             }
                         }
                     }
@@ -441,7 +474,7 @@ h4 {
             align-items: center;
             cursor: pointer;
             @include phone {
-                width: 70%;
+                width: 80%;
             }
             .double--prev,
             .prev,
@@ -483,7 +516,7 @@ h4 {
     width: 90%;
     background: white;
     margin: 15px auto;
-    padding: 10px 15px;
+    padding: 15px;
     border-radius: 5px;
     border: 1px solid rgb(221, 221, 221);
     display: grid;
@@ -532,48 +565,56 @@ h4 {
     background: white;
     .fields--info {
         display: grid;
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 15% 85%;
         margin: 10px 0;
+        @include phone {
+            display: flex;
+            flex-direction: column;
+        }
         input {
             border-radius: 5px;
             outline: none;
             height: 3rem;
             border: 1px solid #ccc;
         }
-        .file {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            // .custom-file {
-            //     cursor: pointer;
-            //     width: 15rem;
-            //     height: 34px;
-            //     overflow: hidden;
-            // }
-            // .custom-file:before {
-            //     width: 15rem;
-            //     height: 32px;
-            //     font-size: 16px;
-            //     line-height: 32px;
-            //     content: 'Upload file';
-            //     display: inline-block;
-            //     padding: 0 10px;
-            //     text-align: center;
-            //     background: green;
-            //     color: white;
-            // }
-            // .custom-file::-webkit-file-upload-button {
-            //     visibility: hidden;
-            // }
-        }
+        // .file {
+        //     display: flex;
+        //     align-items: center;
+        //     gap: 1rem;
+        //     // .custom-file {
+        //     //     cursor: pointer;
+        //     //     width: 15rem;
+        //     //     height: 34px;
+        //     //     overflow: hidden;
+        //     // }
+        //     // .custom-file:before {
+        //     //     width: 15rem;
+        //     //     height: 32px;
+        //     //     font-size: 16px;
+        //     //     line-height: 32px;
+        //     //     content: 'Upload file';
+        //     //     display: inline-block;
+        //     //     padding: 0 10px;
+        //     //     text-align: center;
+        //     //     background: green;
+        //     //     color: white;
+        //     // }
+        //     // .custom-file::-webkit-file-upload-button {
+        //     //     visibility: hidden;
+        //     // }
+        // }
     }
-    #create,
-    #update {
-        background: green;
-        color: white;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        width: 8rem;
-        padding: 3px 0px;
+    .module {
+        display: flex;
+        justify-content: flex-end;
+        #create,
+        #update {
+            background: green;
+            color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 8rem;
+            padding: 3px 0px;
+        }
     }
 }

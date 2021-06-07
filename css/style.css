@@ -17,7 +17,7 @@ a {
   display: grid;
   width: 90%;
   margin: auto;
-  grid-template-columns: 32% 68%;
+  grid-template-columns: 31% 68%;
   gap: 1rem; }
   @media (max-width: 576px) {
     .containerMain {
@@ -46,7 +46,7 @@ a {
       margin: 10px 0; }
       .containerMain .studensInfo .detail__info .info label {
         font-weight: 450;
-        font-size: 14px; }
+        font-size: 13px; }
       .containerMain .studensInfo .detail__info .info input {
         padding: 3px 10px;
         border: 1px solid #dad9d9;
@@ -60,6 +60,9 @@ a {
         align-items: center;
         justify-content: space-between;
         cursor: pointer; }
+        .containerMain .studensInfo .detail__info .info .pass input,
+        .containerMain .studensInfo .detail__info .info .repass input {
+          width: 85%; }
     .containerMain .studensInfo .detail__info #fullname--error, .containerMain .studensInfo .detail__info #mail--error,
     .containerMain .studensInfo .detail__info #phone--error,
     .containerMain .studensInfo .detail__info #addr--error,
@@ -100,6 +103,9 @@ a {
         opacity: 0.8;
         font-size: 20px;
         cursor: pointer; }
+        @media (max-width: 576px) {
+          .containerMain .studensInfo .detail__info .handle .reset {
+            font-size: 16px; } }
   .containerMain .studensList {
     padding: 0px 15px 15px 15px;
     border: 1px solid #ccc;
@@ -123,7 +129,8 @@ a {
       display: grid;
       grid-template-columns: 40% 50% 10%;
       align-items: center;
-      margin: 15px 0; }
+      margin: 15px 0;
+      position: relative; }
       @media (max-width: 576px) {
         .containerMain .studensList .heading__list .module {
           width: 100%;
@@ -158,6 +165,9 @@ a {
           outline: none;
           border: 1px solid #ccc;
           height: 2.7rem; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .heading__list .module .search input#search--input {
+            width: 75%; } }
       .containerMain .studensList .heading__list .module .menu {
         text-align: end;
         font-size: 25px;
@@ -166,7 +176,7 @@ a {
         @media (max-width: 576px) {
           .containerMain .studensList .heading__list .module .menu {
             position: absolute;
-            inset: auto 2rem 26.5rem; } }
+            inset: auto 0rem 6.5rem; } }
       .containerMain .studensList .heading__list .module .navMenu {
         display: none;
         background: #fbeaad;
@@ -182,7 +192,7 @@ a {
         @media (max-width: 576px) {
           .containerMain .studensList .heading__list .module .navMenu {
             position: absolute;
-            width: 92%;
+            width: 100%;
             margin: auto;
             inset: auto; } }
         .containerMain .studensList .heading__list .module .navMenu .setting__more {
@@ -193,10 +203,13 @@ a {
           grid-template-columns: 50% 50%; }
           @media (max-width: 576px) {
             .containerMain .studensList .heading__list .module .navMenu .setting__more {
-              grid-template-columns: 60% 40%; } }
+              grid-template-columns: 70% 30%; } }
           .containerMain .studensList .heading__list .module .navMenu .setting__more span {
             color: #34b43e;
             font-weight: 500; }
+            @media (max-width: 576px) {
+              .containerMain .studensList .heading__list .module .navMenu .setting__more span {
+                font-size: 16px; } }
           .containerMain .studensList .heading__list .module .navMenu .setting__more i {
             color: cornflowerblue;
             text-align: end; }
@@ -223,6 +236,9 @@ a {
           display: grid;
           grid-template-columns: 40% 60%;
           margin-bottom: 25px; }
+          @media (max-width: 576px) {
+            .containerMain .studensList .heading__list .module .navMenu .setup__data {
+              grid-template-columns: 50% 50%; } }
           .containerMain .studensList .heading__list .module .navMenu .setup__data .download {
             width: 12rem;
             background: #46b14f;
@@ -249,7 +265,7 @@ a {
             transition: background-color 0.3s ease-in-out; }
             @media (max-width: 576px) {
               .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .setting {
-                font-size: 11px;
+                font-size: 10px;
                 letter-spacing: 0.25px; } }
           .containerMain .studensList .heading__list .module .navMenu .setup__data .setup__item .option {
             display: none;
@@ -269,6 +285,9 @@ a {
           margin: 10px 0px; }
           .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro span {
             font-weight: 500; }
+            @media (max-width: 576px) {
+              .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete span, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro span {
+                font-size: 12px; } }
           .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__add .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__update .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__delete .switch, .containerMain .studensList .heading__list .module .navMenu .setting__detail .alert__intro .switch {
             position: relative;
             display: inline-block;
@@ -326,8 +345,9 @@ a {
       @media (max-width: 576px) {
         .containerMain .studensList .detail__list table tbody tr {
           display: grid;
-          grid-template-columns: 20% 49% 31%;
-          font-size: 11px; } }
+          grid-template-columns: 22% 49% 28%;
+          font-size: 11px;
+          text-align: start; } }
       @media (max-width: 576px) {
         .containerMain .studensList .detail__list table tbody tr td:first-child {
           display: none; } }
@@ -339,12 +359,19 @@ a {
         gap: 3px;
         width: 90%;
         margin: auto; }
+        @media (max-width: 576px) {
+          .containerMain .studensList .detail__list table tbody tr td.control {
+            grid-template-columns: 50% 50%; } }
         .containerMain .studensList .detail__list table tbody tr td.control a {
           text-decoration: none;
           padding: 3px;
           font-size: 10px;
           border-radius: 5px;
           font-weight: bold; }
+          @media (max-width: 576px) {
+            .containerMain .studensList .detail__list table tbody tr td.control a {
+              padding: 0;
+              text-align: center; } }
         .containerMain .studensList .detail__list table tbody tr td.control a:first-child {
           border: 1px solid #4b4bfd;
           color: #4b4bfd; }
@@ -354,6 +381,9 @@ a {
         .containerMain .studensList .detail__list table tbody tr td.control a:last-child {
           border: 1px solid orange;
           color: orange; }
+          @media (max-width: 576px) {
+            .containerMain .studensList .detail__list table tbody tr td.control a:last-child {
+              display: none; } }
     .containerMain .studensList .pagination {
       display: grid;
       grid-template-columns: 10% 10% 60% 10% 10%;
@@ -363,7 +393,7 @@ a {
       cursor: pointer; }
       @media (max-width: 576px) {
         .containerMain .studensList .pagination {
-          width: 70%; } }
+          width: 80%; } }
       .containerMain .studensList .pagination .double--prev,
       .containerMain .studensList .pagination .prev,
       .containerMain .studensList .pagination .next,
@@ -393,7 +423,7 @@ a {
   width: 90%;
   background: white;
   margin: 15px auto;
-  padding: 10px 15px;
+  padding: 15px;
   border-radius: 5px;
   border: 1px solid #dddddd;
   display: grid;
@@ -433,22 +463,25 @@ a {
   background: white; }
   #Add--Courses .fields--info {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 15% 85%;
     margin: 10px 0; }
+    @media (max-width: 576px) {
+      #Add--Courses .fields--info {
+        display: flex;
+        flex-direction: column; } }
     #Add--Courses .fields--info input {
       border-radius: 5px;
       outline: none;
       height: 3rem;
       border: 1px solid #ccc; }
-    #Add--Courses .fields--info .file {
-      display: flex;
-      align-items: center;
-      gap: 1rem; }
-  #Add--Courses #create,
-  #Add--Courses #update {
-    background: green;
-    color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 8rem;
-    padding: 3px 0px; }
+  #Add--Courses .module {
+    display: flex;
+    justify-content: flex-end; }
+    #Add--Courses .module #create,
+    #Add--Courses .module #update {
+      background: green;
+      color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 8rem;
+      padding: 3px 0px; }
