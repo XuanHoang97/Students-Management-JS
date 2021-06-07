@@ -389,7 +389,7 @@ a {
           color: white;
           font-weight: bold; }
 
-#test {
+#list--courses {
   width: 90%;
   margin: 15px auto;
   padding: 10px 15px;
@@ -399,17 +399,28 @@ a {
   gap: 2rem;
   grid-template-columns: 31% 31% 31%;
   justify-content: space-between; }
-  #test .courses--item .control {
+  @media (max-width: 576px) {
+    #list--courses {
+      display: flex;
+      flex-direction: column; } }
+  #list--courses .courses--item img {
+    width: 100%; }
+  #list--courses .courses--item .participants {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0.8; }
+  #list--courses .courses--item .control {
     display: flex;
     gap: 1rem;
     align-items: center;
     justify-content: flex-end; }
-    #test .courses--item .control i {
+    #list--courses .courses--item .control i {
       font-size: 20px;
       cursor: pointer; }
-    #test .courses--item .control .far.fa-window-close {
+    #list--courses .courses--item .control .far.fa-window-close {
       color: red; }
-    #test .courses--item .control .far.fa-edit {
+    #list--courses .courses--item .control .far.fa-edit {
       color: blue; }
 
 #Add--Courses {
@@ -427,3 +438,31 @@ a {
       outline: none;
       height: 3rem;
       border: 1px solid #ccc; }
+    #Add--Courses .fields--info .file {
+      display: flex;
+      align-items: center;
+      gap: 1rem; }
+      #Add--Courses .fields--info .file .custom-file {
+        cursor: pointer;
+        width: 15rem;
+        height: 34px;
+        overflow: hidden; }
+      #Add--Courses .fields--info .file .custom-file:before {
+        width: 15rem;
+        height: 32px;
+        font-size: 16px;
+        line-height: 32px;
+        content: 'Upload file';
+        display: inline-block;
+        padding: 0 10px;
+        text-align: center;
+        background: green;
+        color: white; }
+  #Add--Courses #create,
+  #Add--Courses #update {
+    background: green;
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 8rem;
+    padding: 3px 0px; }

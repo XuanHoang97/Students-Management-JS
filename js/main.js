@@ -309,6 +309,7 @@
             .then(callback);
     }
 
+    // Them moi khoa hoc
     function createCourses(data, callback) {
         var option = {
             method: 'POST',
@@ -324,6 +325,7 @@
             .then(callback);
     }
 
+    // Xoa khoa hoc
     function handleDeleleCourse(id) {
         var option = {
             method: 'DELETE',
@@ -343,13 +345,19 @@
             });
     }
 
+    // render UI
     function renderCourses(courses) {
-        var listCourses = document.querySelector("#test");
+        var listCourses = document.querySelector("#list--courses");
         var htmls = courses.map(function(course) {
             return `
                 <div class="courses--item course-item-${course.id}">
-                    <h4 class="course-name-${course.id}" >${course.name}</h4>
-                    <p class="course-description-${course.id}">${course.description}</p>
+                    <img src="${course.image}" alt="courses">
+                    <h4 class="course-nam" >${course.name}</h4>
+                    <p class="course-description">${course.description}</p>
+                    <div class="participants">
+                        <i class="fas fa-users"></i>
+                        <span>8,124</span>
+                    </div>
                     <div class="control">
                         <i class="far fa-edit" onclick="handleUpdateCourses(${course.id})"></i>
                         <i class="far fa-window-close" onclick="handleDeleleCourse(${course.id})"></i>
@@ -360,6 +368,7 @@
         listCourses.innerHTML = htmls.join('');
     }
 
+    // Bat su kien onclick tao moi khoa hoc
     function handleCreateCourses() {
         var createBtn = document.querySelector('#create');
         createBtn.onclick = function() {
@@ -377,9 +386,7 @@
         }
     }
 
-    // UPDATE
-    //trước đó tạo một button "Save" ngang hàng với button "Create"
-    //button "Save" mặc định display: none
+    // UPDATE khoa hoc
     function updateInput(id) {
 
         getCourses(function(course) {

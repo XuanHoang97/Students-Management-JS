@@ -479,7 +479,7 @@ h3 {
     }
 }
 
-#test {
+#list--courses {
     width: 90%;
     margin: 15px auto;
     padding: 10px 15px;
@@ -489,7 +489,20 @@ h3 {
     gap: 2rem;
     grid-template-columns: 31% 31% 31%;
     justify-content: space-between;
+    @include phone {
+        display: flex;
+        flex-direction: column;
+    }
     .courses--item {
+        img {
+            width: 100%;
+        }
+        .participants {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            opacity: 0.8;
+        }
         .control {
             display: flex;
             gap: 1rem;
@@ -525,5 +538,40 @@ h3 {
             height: 3rem;
             border: 1px solid #ccc;
         }
+        .file {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            .custom-file {
+                cursor: pointer;
+                width: 15rem;
+                height: 34px;
+                overflow: hidden;
+            }
+            .custom-file:before {
+                width: 15rem;
+                height: 32px;
+                font-size: 16px;
+                line-height: 32px;
+                content: 'Upload file';
+                display: inline-block;
+                padding: 0 10px;
+                text-align: center;
+                background: green;
+                color: white;
+            }
+            // .custom-file::-webkit-file-upload-button {
+            //     visibility: hidden;
+            // }
+        }
+    }
+    #create,
+    #update {
+        background: green;
+        color: white;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 8rem;
+        padding: 3px 0px;
     }
 }

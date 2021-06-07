@@ -2,30 +2,36 @@
   "courses": [
     {
       "id": 1,
+      "image": "Assets/img/it.png",
       "name": "HTML, CSS từ Zero đên Hero",
       "description": "Kiến thức cơ bản dành cho dân IT, không phân biệt bạn theo Front-end, Back-end hay Devops"
     },
     {
+      "image": "Assets/img/it.png",
       "name": "Thiết kế Web responsive",
       "description": "Khóa học này sẽ giúp bạn nắm chắc tư tưởng cốt lõi của việc xây dựng giao diện website responsive và áp dụng trong thực tế.",
       "id": 3
     },
     {
+      "image": "Assets/img/it.png",
       "name": "Lập trình Javascript nâng cao (bản xịn xò)",
       "description": "Học về tư tưởng và khái niệm nâng cao của Javascript. Cần hoàn thành khóa Javascript cơ bản hoặc tương đương để tham gia khóa học này",
       "id": 9
     },
     {
+      "image": "Assets/img/it.png",
       "name": "Kiến thức cơ bản, cốt lõi dân IT cần học trước",
       "description": "Kiến thức cơ bản dành cho dân IT, không phân biệt bạn theo Front-end, Back-end hay Devops",
       "id": 10
     },
     {
+      "image": "Assets/img/it.png",
       "name": "Lập trình Javascript cơ bản (bản đầy đủ)",
       "description": "Khóa học Javascript cơ bản dành cho mọi đối tượng bắt đầu học lập trình với nội dung ngắn gọn, dễ hiểu và hệ thống làm bài tập phong phú",
       "id": 11
     },
     {
+      "image": "Assets/img/it.png",
       "name": "Xây dựng web với NodeJS & ExpressJS",
       "description": "Xây dựng web trong thực tế với NodeJS & ExpressJS với cách chia sẻ chi tiết, tận tâm, dễ hiểu và chất giọng giàu sức sống của người chia sẻ",
       "id": 12
