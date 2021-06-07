@@ -253,7 +253,7 @@
     }
 
     // Note Alert intro
-    setTimeout(function() { alert("Menu có thể kéo thả ra vị trí khác để dễ sử dụng hơn"); }, 15000);
+    // setTimeout(function() { alert("Menu có thể kéo thả ra vị trí khác để dễ sử dụng hơn"); }, 15000);
 
 
     // feature extends
@@ -291,25 +291,133 @@
         document.getElementById('search--input').value = '';
     });
 
-    // Fetch API
-    var postApi = "https://jsonplaceholder.typicode.com/posts";
-    fetch(postApi)
-        .then(function(response) {
-            return response.json();
+    // CRUD Courses
+    var courseApi = "http://localhost:3000/courses";
+
+    function start() {
+        getCourses(renderCourses);
+        handleCreateCourses()
+    }
+
+    start();
+    // Lay khoa hoc
+    function getCourses(callback) {
+        fetch(courseApi)
+            .then(function(response) {
+                return response.json();
+            })
+            .then(callback);
+    }
+
+    function createCourses(data, callback) {
+        var option = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
+        fetch(courseApi, option)
+            .then(function(response) {
+                response.json;
+            })
+            .then(callback);
+    }
+
+    function handleDeleleCourse(id) {
+        var option = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        };
+        fetch(courseApi + "/" + id, option)
+            .then(function(response) {
+                response.json;
+            })
+            .then(function() {
+                var courseItem = document.querySelector('.course-item-' + id);
+                if (courseItem) {
+                    courseItem.remove();
+                }
+            });
+    }
+
+    function renderCourses(courses) {
+        var listCourses = document.querySelector("#test");
+        var htmls = courses.map(function(course) {
+            return `
+                <div class="courses--item course-item-${course.id}">
+                    <h4 class="course-name-${course.id}" >${course.name}</h4>
+                    <p class="course-description-${course.id}">${course.description}</p>
+                    <div class="control">
+                        <i class="far fa-edit" onclick="handleUpdateCourses(${course.id})"></i>
+                        <i class="far fa-window-close" onclick="handleDeleleCourse(${course.id})"></i>
+                    </div>
+                </div>
+            `;
         })
+        listCourses.innerHTML = htmls.join('');
+    }
 
-    .then(function(posts) {
-        var htmls = posts.map(function(post) {
-            return `<li>
-                <h2>${post.title}</h2>
-                <p>${post.body}</p>
-            </li>`;
+    function handleCreateCourses() {
+        var createBtn = document.querySelector('#create');
+        createBtn.onclick = function() {
+            var name = document.querySelector('input[name="name"]').value;
+            var description = document.querySelector('input[name="description"]').value;
+            console.log(name, description)
+
+            var formData = {
+                name: name,
+                description: description
+            };
+            createCourses(formData, function() {
+                getCourses(renderCourses);
+            });
+        }
+    }
+
+    // UPDATE
+    //trước đó tạo một button "Save" ngang hàng với button "Create"
+    //button "Save" mặc định display: none
+    function updateInput(id) {
+
+        getCourses(function(course) {
+            var x = course.find(course => course.id === id);
+            document.querySelector('input[name="name"]').value = x.name;
+            document.querySelector('input[name="description"]').value = x.description;
+            document.querySelector('#create').style.display = "none"; //khi hàm chạy thì button "Create" sẽ ẩn
+            document.querySelector('#update').style.display = 'block'; //khi hàm chạy thì button "Save" sẽ hiện để người dùng click
+
         });
-        var html = htmls.join('');
-        document.getElementById('test').innerHTML = html;
-        // $('#test').innerHTML = htmls.join("");
-    })
+    }
 
-    .catch(function(err) {
-        console.log('co loi');
-    })
+    function handleUpdateCourses(id) { //hàm này được call khi click vào nút "SỬA"
+        updateInput(id); // hàm này để get data từ đã có để chỉnh sửa
+        var updateBtn = document.querySelector('#update'); //hàm này được gọi khi click vào nút "Save"
+        updateBtn.onclick = function() {
+            var name = document.querySelector('input[name="name"]').value;
+            var description = document.querySelector('input[name="description"]').value;
+            var formData = {
+                name: name,
+                description: description
+            }
+            if (formData.name === "" || formData.description === '') {
+                alert("Bạn cần nhập đầy đủ các trường thông tin!")
+            } else {
+                var options = {
+                    method: 'PUT',
+                    body: JSON.stringify(formData),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                }
+                fetch(courseApi + '/' + id, options)
+                    .then(function(respond) {
+                        respond.json()
+                    })
+            }
+
+
+        }
+    }

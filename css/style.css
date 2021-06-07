@@ -388,3 +388,42 @@ a {
           background: #00ac1d;
           color: white;
           font-weight: bold; }
+
+#test {
+  width: 90%;
+  margin: 15px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #dddddd;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 31% 31% 31%;
+  justify-content: space-between; }
+  #test .courses--item .control {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: flex-end; }
+    #test .courses--item .control i {
+      font-size: 20px;
+      cursor: pointer; }
+    #test .courses--item .control .far.fa-window-close {
+      color: red; }
+    #test .courses--item .control .far.fa-edit {
+      color: blue; }
+
+#Add--Courses {
+  width: 90%;
+  margin: 15px auto;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid #dddddd; }
+  #Add--Courses .fields--info {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin: 10px 0; }
+    #Add--Courses .fields--info input {
+      border-radius: 5px;
+      outline: none;
+      height: 3rem;
+      border: 1px solid #ccc; }

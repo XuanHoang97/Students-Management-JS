@@ -195,7 +195,7 @@ h3 {
                     }
                 }
                 .navMenu {
-                    // display: none;
+                    display: none;
                     background: #fbeaad;
                     padding: 20px 15px;
                     position: absolute;
@@ -475,6 +475,55 @@ h3 {
                     @extend .numb--item;
                 }
             }
+        }
+    }
+}
+
+#test {
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 31% 31% 31%;
+    justify-content: space-between;
+    .courses--item {
+        .control {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: flex-end;
+            i {
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .far.fa-window-close {
+                color: red;
+            }
+            .far.fa-edit {
+                color: blue;
+            }
+        }
+    }
+}
+
+#Add--Courses {
+    width: 90%;
+    margin: 15px auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid rgb(221, 221, 221);
+    .fields--info {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        margin: 10px 0;
+        input {
+            border-radius: 5px;
+            outline: none;
+            height: 3rem;
+            border: 1px solid #ccc;
         }
     }
 }
