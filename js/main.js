@@ -292,7 +292,7 @@
     });
 
     // CRUD Courses
-    var courseApi = "http://localhost:3000/courses";
+    var courseApi = "https://y6896.sse.codesandbox.io/courses";
 
     function start() {
         getCourses(renderCourses);

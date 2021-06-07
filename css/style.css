@@ -5,7 +5,7 @@ a {
   text-decoration: none; }
 
 @media (max-width: 576px) {
-  h3 {
+  h4 {
     color: white !important;
     background: #7a9bcc;
     padding: 10px 10px;
@@ -28,11 +28,11 @@ a {
   .containerMain .studensInfo {
     padding: 0px 15px 15px 15px;
     border: 1px solid #dad9d9;
-    border-radius: 10px; }
+    border-radius: 10px;
+    background: white; }
     @media (max-width: 576px) {
       .containerMain .studensInfo {
-        border-radius: 0;
-        background: white; } }
+        border-radius: 0; } }
     .containerMain .studensInfo h2 {
       font-size: 20px;
       margin-bottom: 30px; }
@@ -103,10 +103,10 @@ a {
   .containerMain .studensList {
     padding: 0px 15px 15px 15px;
     border: 1px solid #ccc;
-    border-radius: 10px; }
+    border-radius: 10px;
+    background: white; }
     @media (max-width: 576px) {
       .containerMain .studensList {
-        background: white;
         border-radius: 0; } }
     @media (max-width: 576px) {
       .containerMain .studensList .heading__list {
@@ -391,6 +391,7 @@ a {
 
 #list--courses {
   width: 90%;
+  background: white;
   margin: 15px auto;
   padding: 10px 15px;
   border-radius: 5px;
@@ -428,7 +429,8 @@ a {
   margin: 15px auto;
   padding: 10px 15px;
   border-radius: 5px;
-  border: 1px solid #dddddd; }
+  border: 1px solid #dddddd;
+  background: white; }
   #Add--Courses .fields--info {
     display: grid;
     grid-template-columns: 30% 70%;
@@ -442,22 +444,6 @@ a {
       display: flex;
       align-items: center;
       gap: 1rem; }
-      #Add--Courses .fields--info .file .custom-file {
-        cursor: pointer;
-        width: 15rem;
-        height: 34px;
-        overflow: hidden; }
-      #Add--Courses .fields--info .file .custom-file:before {
-        width: 15rem;
-        height: 32px;
-        font-size: 16px;
-        line-height: 32px;
-        content: 'Upload file';
-        display: inline-block;
-        padding: 0 10px;
-        text-align: center;
-        background: green;
-        color: white; }
   #Add--Courses #create,
   #Add--Courses #update {
     background: green;

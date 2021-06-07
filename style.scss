@@ -1,5 +1,5 @@
 @import "variable.scss";
-h3 {
+h4 {
     @include phone {
         color: white !important;
         background: #7a9bcc;
@@ -26,9 +26,9 @@ h3 {
         padding: 0px 15px 15px 15px;
         border: 1px solid #dad9d9;
         border-radius: 10px;
+        background: white;
         @include phone {
             border-radius: 0;
-            background: white;
         }
         h2 {
             font-size: 20px;
@@ -120,8 +120,8 @@ h3 {
         padding: 0px 15px 15px 15px;
         border: 1px solid #ccc;
         border-radius: 10px;
+        background: white;
         @include phone {
-            background: white;
             border-radius: 0;
         }
         .heading__list {
@@ -481,6 +481,7 @@ h3 {
 
 #list--courses {
     width: 90%;
+    background: white;
     margin: 15px auto;
     padding: 10px 15px;
     border-radius: 5px;
@@ -528,6 +529,7 @@ h3 {
     padding: 10px 15px;
     border-radius: 5px;
     border: 1px solid rgb(221, 221, 221);
+    background: white;
     .fields--info {
         display: grid;
         grid-template-columns: 30% 70%;
@@ -542,24 +544,24 @@ h3 {
             display: flex;
             align-items: center;
             gap: 1rem;
-            .custom-file {
-                cursor: pointer;
-                width: 15rem;
-                height: 34px;
-                overflow: hidden;
-            }
-            .custom-file:before {
-                width: 15rem;
-                height: 32px;
-                font-size: 16px;
-                line-height: 32px;
-                content: 'Upload file';
-                display: inline-block;
-                padding: 0 10px;
-                text-align: center;
-                background: green;
-                color: white;
-            }
+            // .custom-file {
+            //     cursor: pointer;
+            //     width: 15rem;
+            //     height: 34px;
+            //     overflow: hidden;
+            // }
+            // .custom-file:before {
+            //     width: 15rem;
+            //     height: 32px;
+            //     font-size: 16px;
+            //     line-height: 32px;
+            //     content: 'Upload file';
+            //     display: inline-block;
+            //     padding: 0 10px;
+            //     text-align: center;
+            //     background: green;
+            //     color: white;
+            // }
             // .custom-file::-webkit-file-upload-button {
             //     visibility: hidden;
             // }
